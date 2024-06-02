@@ -1,0 +1,13 @@
+body{
+    background-color: #202093;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo{
+    width: 30vh;
+    position: absolute;
+    margin-top: 40vh;
+    margin-left: 40vw;
+    text-align: center;
+}

@@ -155,7 +155,13 @@ body {
 
     .navbar .links a,
     .navbar .contact a {
-        margin: 0.5rem 0;
+        color: white;
+        text-decoration: none;
+        margin: 0.8rem;
+        transition: color 0.3s ease;
+    }
+    .navbar .contact {
+        margin-top: 1rem;
     }
 }
 
@@ -194,10 +200,11 @@ blockquote {
     margin: auto;
 }
 
-.menu .title {
-    margin-top: 0;
-    font-size: 6rem;
-    margin-bottom: 1rem;
+.menu h1 {
+    font-family: Krylon;
+    margin-top: 2rem;
+    font-size: 2em;
+    margin-bottom: 2rem;
 }
 
 .menu ul {
@@ -211,17 +218,7 @@ blockquote {
     justify-content: flex-start;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding: 1rem 0;
-    font-size: 4rem;
-    position: relative;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 1rem 0;
-    font-size: 5rem;
+    font-size: 3em;
     position: relative;
 }
 
@@ -324,19 +321,26 @@ blockquote {
     font-size: 2em;
 }
 
+.content h2 {
+    font-family: Krylon;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
 .content p {
-    color: #666;
+    text-align: justify;
+    color: #919191;
     line-height: 1.6;
 }
 
 .content a {
-    font-weight: bold;
     color: rgb(139, 139, 139);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .content a:hover {
-    text-decoration: none;
+    transition: 0.3s ease;
+    text-decoration: underline;
     color: red;
 }
 

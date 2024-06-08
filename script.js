@@ -6,10 +6,7 @@ document.querySelectorAll('a').forEach(link => {
         let hoverSound = document.getElementById('hover-sound');
         hoverSound.volume = 0.1; // Ajuste le volume à 50%
         hoverSound.currentTime = 0;
-        // Vérifiez si l'utilisateur a déjà interagi avec le document
-        if (document.documentElement.hasAttribute('user-has-interacted')) {
-            hoverSound.play();
-        }
+        hoverSound.play();
     });
 });
 

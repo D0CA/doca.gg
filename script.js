@@ -1,6 +1,15 @@
 const cursor = document.querySelector('#cursor');
 let timer, blurTimer;
 
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('mouseover', function() {
+        let hoverSound = document.getElementById('hover-sound');
+        hoverSound.volume = 0.1; // Ajuste le volume à 50%
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+    });
+});
+
 function handleLoading() {
     let loadingText = document.getElementById('loading-text');
     let progress = 0;

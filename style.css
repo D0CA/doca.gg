@@ -1,13 +1,246 @@
-body{
-    background-color: #202093;
+@font-face {
+    font-family: 'Krylon';
+    src: url('fonts/Krylon.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Mattone';
+    src: url('fonts/Mattone.otf') format('opentype');
+}
+
+html, a {  
+    cursor: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.logo{
-    width: 30vh;
+/* Loading styles */
+#loading {
+    font-family: 'Krylon';
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+    opacity: 1;
+    background-color: #5a1818;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#loading.hide {
+    animation: slideUp 1s forwards 0.6s; /* Ajoutez un délai de 1 seconde avant que l'animation ne commence */
+    pointer-events: none; /* Empêche les clics sur l'élément de chargement pendant qu'il disparaît */
+}
+
+#progress {
+    width: 0;
+    height: 20px;
+    background-color: #1a1a1a;
+}
+
+/* Cursor styles */
+#cursor {
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    border-radius: 50%;
     position: absolute;
-    margin-top: 40vh;
-    margin-left: 40vw;
+    pointer-events: none;
+    transition: transform 0.1s ease-in-out, background-color 0.5s, border-color 0.5s, filter 0.5s ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    filter: none;
+}
+
+#cursor.red {
+    background-color: rgba(255, 0, 0, 0.7);
+    border-color: rgb(255, 0, 0);
+}
+
+#cursor.blur {
+    filter: blur(1px) opacity(0.6);
+}
+
+#cursor.hide {
+    display: none;
+}
+
+/* Styles existants */
+
+.navbar {
+    font-size: 0.7rem;
+    position: sticky;
+    text-transform: uppercase;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px); /* Ajouté */
+}
+
+.navbar .logo {
+    width: 5vh;
+    padding-left: 2rem;
+    position: relative;
     text-align: center;
+}
+
+.navbar .links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar .links a,
+.navbar .contact a {
+    color: white;
+    text-decoration: none;
+    margin: 0 3rem;
+    transition: color 0.3s ease;
+}
+
+/* Nouveaux styles pour les écrans de téléphone */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar .logo {
+        padding-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .navbar .links {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar .links a,
+    .navbar .contact a {
+        margin: 0.5rem 0;
+    }
+}
+
+.navbar .links a:hover,
+.navbar .contact a:hover {
+    transition: color 0.3s ease;
+    color: rgb(255, 0, 0, 0.7);
+}
+
+.quote-container {
+    display: flex;
+    justify-content: center;
+}
+
+blockquote {
+    font-size: 3rem;
+    font-family: Krylon;
+    font-style: italic;
+    text-align: center;
+    padding: 10rem 0 15rem; 
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Cela crée un espace entre les images. Ajustez cette valeur en fonction de vos besoins. */
+}
+
+.image img {
+    width: 100%; /* Cela garantit que l'image s'adapte à la taille de sa div parent. */
+}
+
+.menu {
+    font-family: Mattone;
+    width: 98%; /* Ajustez en fonction de vos besoins */
+    margin: auto;
+}
+
+.menu .title {
+    margin-top: 0;
+    font-size: 6rem;
+    margin-bottom: 1rem;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 0;
+    font-size: 4rem;
+    position: relative;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 0;
+    font-size: 5rem;
+    position: relative;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.menu-item img {
+    width: 7rem;
+    margin-right: 1rem;
+    z-index: 2;
+}
+
+.menu-item .qr {
+    width: 3.5rem;
+    margin-left: auto;
+    z-index: 2;
 }

@@ -298,3 +298,40 @@ blockquote {
         opacity: 0;
     }
 }
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.content h1 {
+    font-family: Krylon;
+    color: #ffffff;
+    font-size: 2em;
+}
+
+.content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.content a {
+    font-weight: bold;
+    color: rgb(139, 139, 139);
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.content ul {
+    padding-left: 20px;
+}
+
+.content ul li {
+    margin-bottom: 10px;
+}

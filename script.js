@@ -6,9 +6,17 @@ document.querySelectorAll('a').forEach(link => {
         let hoverSound = document.getElementById('hover-sound');
         hoverSound.volume = 0.1; // Ajuste le volume à 50%
         hoverSound.currentTime = 0;
-        hoverSound.play();
+        // Vérifiez si l'utilisateur a déjà interagi avec le document
+        if (document.documentElement.hasAttribute('user-has-interacted')) {
+            hoverSound.play();
+        }
     });
 });
+
+// Ajoutez un gestionnaire d'événements pour détecter la première interaction de l'utilisateur
+document.documentElement.addEventListener('mousedown', function() {
+    document.documentElement.setAttribute('user-has-interacted', '');
+}, { once: true });
 
 function typeWriter(text, element) {
     let index = 0;

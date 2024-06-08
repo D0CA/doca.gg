@@ -10,25 +10,41 @@ document.querySelectorAll('a').forEach(link => {
     });
 });
 
+function typeWriter(text, element) {
+    let index = 0;
+    let interval = setInterval(() => {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index) === ' ' ? '&nbsp;' : text.charAt(index);
+            index++;
+        } else {
+            clearInterval(interval);
+            // Ajoute l'animation de la barre clignotante à la fin du texte
+            element.classList.add('blinking-cursor');
+        }
+    }, 100); // Ajustez cette valeur pour contrôler la vitesse de l'animation d'écriture
+}
+
 function handleLoading() {
     let loadingText = document.getElementById('loading-text');
+    if (!loadingText) return;
     let progress = 0;
-    cursor.classList.add('hide'); 
     let interval = setInterval(() => {
         progress += 1;
         if (progress <= 100) {
             loadingText.innerText = progress + '%';
         } else {
             clearInterval(interval);
-            cursor.classList.remove('hide'); // Affiche le curseur une fois que le chargement atteint 100%
             setTimeout(function() {
-                loadingText.innerText = 'Click to enter';
-                document.body.addEventListener('click', function() {
-                    document.getElementById('loading').classList.add('hide');
-                }, { once: true }); 
+                loadingText.innerHTML = '';
+                typeWriter('Click to enter', loadingText);
             }, 500);
         }
     }, 15); // Ajustez cette valeur pour contrôler la vitesse de chargement
+}
+
+function handleLoadingClick() {
+    const loading = document.getElementById('loading');
+    loading.classList.add('hide');
 }
 
 function handleMouseMove(e) {
@@ -71,8 +87,13 @@ function handleLinkHover() {
 }
 
 window.addEventListener('load', handleLoading);
+const loading = document.getElementById('loading');
+if (loading) {
+    loading.addEventListener('click', handleLoadingClick);
+}
 document.addEventListener('mousemove', handleMouseMove);
 document.addEventListener('click', handleClick);
 document.addEventListener('mouseleave', handleMouseLeave);
 document.addEventListener('mouseenter', handleMouseEnter);
+
 handleLinkHover();

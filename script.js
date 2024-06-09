@@ -3,12 +3,11 @@ function pageTransition() {
     .to('img', {
         clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
         duration: 1
-    })
+    });
 
     setTimeout(function() {
         contentAnimation();
-    }
-    , 1000);
+    }, 1000);
 }
 
 function contentAnimation() {
@@ -19,12 +18,7 @@ function contentAnimation() {
     }, "-=1")
 }
 
-function delay(n) {
-    n = n || 2000;
-    return new Promise(done => {
-        setTimeout(done, n);
-    });
-}
+// Remove the unused delay function
 
 function initCustomCursor() {
     const cursor = document.querySelector('#cursor');
@@ -86,8 +80,15 @@ barba.init({
             this.async()();
         });
     }
-  }]
+  }],
+  views: [{
+    namespace: 'navbar',
+    persistent: true
+  }],
+  prevent: ({ el }) => el.href.includes('index.html'),
+    debug: true
 });
+
 
 const cursor = document.querySelector('#cursor');
 let timer, blurTimer;

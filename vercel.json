@@ -4,7 +4,6 @@
         { "source": "/:slug", "destination": "/pages/:slug" }
     ],
     "redirects": [
-        { "source": "/pages/:slug", "destination": "/:slug", "permanent": true }
-    ],
-    "barba": false
+        { "source": "/pages/:slug", "destination": "/:slug", "statusCode": 301 }
+    ]
 }

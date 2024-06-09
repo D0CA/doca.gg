@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
 </head>
-<body>
+<body data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="about">
+    <div class="wrapper">
     <div id="cursor"></div>
     <div class="navbar">
         <div class="logo">
@@ -42,7 +44,11 @@
         <h2>Get in Touch</h2>
         <p>Want to learn more or collaborate on a project? <a href="contact.html">Contact Me or follow me on social media.</a></p>
     </div>
-<audio id="hover-sound" src="/sounds/hover.mov" preload="auto"></audio>
-<script src="/script.js"></script>
+    </main>
+    </div>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <audio id="hover-sound" src="/sounds/hover.mov" preload="auto"></audio>
+    <script src="/script.js"></script>
 </body>
 </html>

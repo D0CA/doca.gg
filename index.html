@@ -5,25 +5,28 @@
     <meta name="description" content="Home page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | DOCA.GG</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
 </head>
-<body>
+
     <div id="loading">
         <div id="loading-text"></div>
     </div>
+    <body data-barba="wrapper">
+        <div class="wrapper">
+            <main data-barba="container" data-barba-namespace="home">
     <div id="cursor"></div>
     <div class="navbar">
         <div class="logo">
             <a href="#"><img class="logo" src="img/dlogo.png" alt="D"></a>
         </div>
         <div class="links">
-            <a href="pages/about.html">About me</a>
-            <a href="pages/projects.html">Projects</a>
-            <a href="pages/contact.html">Contact</a>
+            <a href="/pages/about.html">About me</a>
+            <a href="/pages/projects.html">Projects</a>
+            <a href="/pages/contact.html">Contact</a>
         </div>
         <div class="contact">
-            <a href="pages/menu.html">Menu</a>
+            <a href="/pages/menu.html">Menu</a>
         </div>
     </div>
         <div class="quote-container">
@@ -34,13 +37,17 @@
         </div>
         <div class="image-container">
             <div class="image">
-                <img src="img/image3.jpeg">
+                <img src="/img/image3.jpeg">
             </div>
             <div class="image">
-                <img src="img/image2.jpeg">
+                <img src="/img/image2.jpeg">
             </div>
         </div>
-    <audio id="hover-sound" src="sounds/hover.mov" preload="auto"></audio>
-    <script src="script.js"></script>
+    </main>
+    </div>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <audio id="hover-sound" src="/sounds/hover.mov" preload="auto"></audio>
+    <script src="/script.js"></script>
 </body>
 </html>

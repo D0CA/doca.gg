@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
 </head>
 <body>
+    <body data-barba="wrapper">
+        <main data-barba="container" data-barba-namespace="projects">
+        <div class="wrapper">
     <div id="cursor"></div>
     <div class="navbar">
         <div class="logo">
@@ -27,6 +30,10 @@
         <h1>My Projects</h1>
         <p>My projects are currently under development. Please check back soon for updates. Thank you for your patience and interest!</p>
     </div>
+    </main>
+    </div>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <audio id="hover-sound" src="/sounds/hover.mov" preload="auto"></audio>
     <script src="/script.js"></script>
 </body>

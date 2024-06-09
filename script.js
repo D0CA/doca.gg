@@ -1,3 +1,94 @@
+function pageTransition() {
+    gsap.timeline()
+    .to('img', {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        duration: 1
+    })
+
+    setTimeout(function() {
+        contentAnimation();
+    }
+    , 1000);
+}
+
+function contentAnimation() {
+    gsap.timeline()
+    .to('img', {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        duration: 1
+    }, "-=1")
+}
+
+function delay(n) {
+    n = n || 2000;
+    return new Promise(done => {
+        setTimeout(done, n);
+    });
+}
+
+function initCustomCursor() {
+    const cursor = document.querySelector('#cursor');
+    document.addEventListener('mousemove', e => {
+        cursor.setAttribute('style', 'top: '+(e.pageY)+'px; left: '+(e.pageX)+'px;');
+    });
+    document.addEventListener('click', () => {
+        cursor.classList.add('expand');
+        setTimeout(() => {
+            cursor.classList.remove('expand');
+        }, 500);
+    });
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.add('hide');
+    });
+    document.addEventListener('mouseenter', () => {
+        cursor.classList.remove('hide');
+    });
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('mouseover', () => {
+            cursor.classList.add('hover');
+        });
+        link.addEventListener('mouseout', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+  }
+
+barba.init({
+  transitions: [{
+    name: 'fade',
+    once() {
+        pageTransition();
+    },
+    leave({ current }) {
+        let tl = gsap.timeline();
+        tl.fromTo(current.container, {
+            opacity: 1
+        }, {
+            opacity: 0,
+            duration: 0.5
+        });
+
+        let done = this.async();
+        tl.eventCallback('onComplete', done);
+    },
+    enter({ next }) {
+        let tl = gsap.timeline();
+        tl.fromTo(next.container, {
+            opacity: 0
+        }, {
+            opacity: 1,
+            duration: 0.5
+        }).then(() => {
+            // Réinitialisez le curseur personnalisé après chaque transition de page
+            initCustomCursor();
+            // Réinitialisez les écouteurs d'événements pour les liens après chaque transition de page
+            handleLinkHover();
+            this.async()();
+        });
+    }
+  }]
+});
+
 const cursor = document.querySelector('#cursor');
 let timer, blurTimer;
 
@@ -82,13 +173,26 @@ function handleMouseEnter() {
 function handleLinkHover() {
     const links = document.querySelectorAll('a');
     links.forEach(link => {
-        link.addEventListener('mouseover', () => {
-            cursor.classList.add('red');
-        });
-        link.addEventListener('mouseout', () => {
-            cursor.classList.remove('red');
-        });
+        // Supprimez d'abord les anciens écouteurs d'événements pour éviter les doublons
+        link.removeEventListener('mouseover', handleLinkMouseOver);
+        link.removeEventListener('mouseout', handleLinkMouseOut);
+
+        // Ensuite, ajoutez les nouveaux écouteurs d'événements
+        link.addEventListener('mouseover', handleLinkMouseOver);
+        link.addEventListener('mouseout', handleLinkMouseOut);
     });
+}
+
+function handleLinkMouseOver() {
+    cursor.classList.add('red');
+    let hoverSound = document.getElementById('hover-sound');
+    hoverSound.volume = 0.1; // Ajuste le volume à 10%
+    hoverSound.currentTime = 0;
+    hoverSound.play();
+}
+
+function handleLinkMouseOut() {
+    cursor.classList.remove('red');
 }
 
 window.addEventListener('load', handleLoading);

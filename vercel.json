@@ -1,9 +1,0 @@
-{
-    "cleanUrls": true,
-    "rewrites": [
-        { "source": "/:slug", "destination": "/pages/:slug.html" }
-    ],
-    "redirects": [
-        { "source": "/:slug", "destination": "/pages/:slug.html", "permanent": true }
-    ]
-}

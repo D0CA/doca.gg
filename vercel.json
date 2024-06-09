@@ -1,9 +1,6 @@
 {
     "cleanUrls": true,
     "rewrites": [
-        { "source": "/:slug", "destination": "/pages/:slug" }
-    ],
-    "redirects": [
-        { "source": "/pages/:slug", "destination": "/:slug", "statusCode": 301 }
+        { "source": "/:slug", "destination": "/pages/:slug.html" }
     ]
 }

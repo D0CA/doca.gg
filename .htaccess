@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# Pour supprimer le /pages/ dans l'URL
+RewriteRule ^([a-zA-Z0-9]+)/$ pages/$1.html [L]
+
+# Pour supprimer l'index.html dans l'URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ http://www.doca.gg/ [R=301,L]

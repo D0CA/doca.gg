@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      { "source": "/:slug", "destination": "/pages/:slug.html" }
+    ],
+    "redirects": [
+      { "source": "/index.html", "destination": "/", "permanent": true }
+    ]
+  }

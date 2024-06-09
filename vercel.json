@@ -4,6 +4,6 @@
         { "source": "/:slug", "destination": "/pages/:slug" }
     ],
     "redirects": [
-        { "source": "/index", "destination": "/", "permanent": true }
+        { "source": "/pages/:slug", "destination": "/:slug", "permanent": true }
     ]
 }

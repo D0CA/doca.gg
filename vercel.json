@@ -1,10 +1,9 @@
 {
-    "cleanUrls": true,
-    "rewrites": [
-        { "source": "/about", "destination": "/pages/about.html" },
-        { "source": "/projects", "destination": "/pages/projects.html" },
-        { "source": "/contact", "destination": "/pages/contact.html" },
-        { "source": "/menu", "destination": "/pages/menu.html" },
-        { "source": "/index", "destination": "/pages/index.html" }
+    "redirects": [
+        { "source": "/about", "destination": "/pages/about.html", "permanent": false },
+        { "source": "/projects", "destination": "/pages/projects.html", "permanent": false },
+        { "source": "/contact", "destination": "/pages/contact.html", "permanent": false },
+        { "source": "/menu", "destination": "/pages/menu.html", "permanent": false },
+        { "source": "/index", "destination": "/pages/index.html", "permanent": false }
     ]
 }

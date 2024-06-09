@@ -1,11 +1,9 @@
 {
-    "redirects": [
-        { "source": "/pages/about.html", "destination": "/about.html", "permanent": true },
-        { "source": "/pages/projects.html", "destination": "/projects.html", "permanent": true },
-        { "source": "/pages/contact.html", "destination": "/contact.html", "permanent": true },
-        { "source": "/pages/menu.html", "destination": "/menu.html", "permanent": true }
-    ],
     "rewrites": [
+        { "source": "/pages/about.html", "destination": "/about" },
+        { "source": "/pages/projects.html", "destination": "/projects" },
+        { "source": "/pages/contact.html", "destination": "/contact" },
+        { "source": "/pages/menu.html", "destination": "/menu" },
         { "source": "/index", "destination": "/" }
     ]
 }

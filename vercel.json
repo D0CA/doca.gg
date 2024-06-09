@@ -1,9 +1,9 @@
 {
+    "cleanUrls": true,
+    "rewrites": [
+        { "source": "/:slug", "destination": "/pages/:slug" }
+    ],
     "redirects": [
-        { "source": "/about", "destination": "/pages/about.html", "permanent": false },
-        { "source": "/projects", "destination": "/pages/projects.html", "permanent": false },
-        { "source": "/contact", "destination": "/pages/contact.html", "permanent": false },
-        { "source": "/menu", "destination": "/pages/menu.html", "permanent": false },
-        { "source": "/index", "destination": "/pages/index.html", "permanent": false }
+        { "source": "/pages/:slug", "destination": "/:slug", "permanent": true }
     ]
 }

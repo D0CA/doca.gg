@@ -351,3 +351,22 @@ blockquote {
 .content ul li {
     margin-bottom: 10px;
 }
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pigbutton {
+    font-family: Krylon;
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    background-color: rgb(225, 225, 225);
+    border-radius: 1rem;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

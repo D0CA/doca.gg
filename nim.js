@@ -116,6 +116,7 @@ function findLosingMove(visibleCounts) {
 
     return null; // Aucun coup perdant trouvé
 }
+
 function calculateNimSum() {
     let nimSum = 0;
     document.querySelectorAll('.row').forEach(row => {

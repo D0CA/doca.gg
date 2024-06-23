@@ -1,5 +1,7 @@
 let currentRow = null;
 let playerTurn = true; // True = Player's turn, False = AI's turn
+let victories = 0;
+let defeats = 0;
 
 function showMessage(msg) {
     const messageDiv = document.getElementById('message');
@@ -22,9 +24,15 @@ function checkWin() {
     if (matchsticks === 0) {
         if (!playerTurn) {
             showMessage("Félicitations ! Vous avez gagné.");
+            playVictorySound(); // Jouer le son de la victoire
+            victories++;
         } else {
             showMessage("Dommage ! Vous avez pris la dernière allumette. Vous avez perdu.");
+            playDefeatSound(); // Jouer le son de la défaite
+            defeats++;
         }
+        document.getElementById('victories').textContent = victories;
+        document.getElementById('defeats').textContent = defeats;
         document.getElementById('restart').click();
     }
 }
@@ -141,6 +149,16 @@ document.querySelectorAll('.row img').forEach(img => {
 
 function playSound() {
     let sound = new Audio('/sounds/matchsound.mp3');
+    sound.play();
+}
+
+function playVictorySound() {
+    let sound = new Audio('/sounds/victory.mp3');
+    sound.play();
+}
+
+function playDefeatSound() {
+    let sound = new Audio('/sounds/defeat.mp3');
     sound.play();
 }
 

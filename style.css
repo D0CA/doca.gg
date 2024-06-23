@@ -263,7 +263,7 @@ blockquote {
 }
 
 .menu-item a:hover span {
-    color: black; /* Ajouté */
+    color: black;
     transition: color 0.4s ease;
 }
 
@@ -352,21 +352,63 @@ blockquote {
     margin-bottom: 10px;
 }
 
-.iframe-container {
+.pyramid {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
-
-.pigbutton {
-    font-family: Krylon;
-    font-size: 1.5em;
-    color: rgb(0, 0, 0);
-    background-color: rgb(225, 225, 225);
-    border-radius: 1rem;
-    border: none;
+.row {
+    display: flex;
+}
+.row img {
+    margin: 10px;
+    height: 150px;
+}
+.buttons {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.buttons button:hover{
+    background-color: rgb(89, 10, 10);
+    color: #fff;
+    transition: 0.3s ease;
+}
+.buttons button {
+    border-radius: 10px;
+    margin: 10px;
     padding: 10px 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: none;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: none;
+    transition: 0.3s ease;
+    
+}
+
+#message {
+    position: fixed;
+    text-align: center;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
+}
+
+#turn-info {
+    text-align: center; /* Centre le texte à l'intérieur de l'élément */
+    margin-top: 20px; /* Ajustez cette valeur pour positionner correctement sous la pyramide */
+    font-size: 20px; /* Ajustez la taille de police selon vos besoins */
+    font-weight: bold; /* Rend le texte en gras */
+    color: #919191;
+    padding: 20px;
 }
